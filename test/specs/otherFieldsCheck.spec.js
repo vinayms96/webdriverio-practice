@@ -5,7 +5,7 @@ const chaiexpect = require("chai").expect;
 
 const automationPractice = require("../pageobjects/automationPractice");
 
-describe("All Fields Check", async () => {
+describe("Other UI Field Checks", async () => {
   beforeEach(async () => {
     await browser.url("/AutomationPractice/");
     await browser.maximizeWindow();

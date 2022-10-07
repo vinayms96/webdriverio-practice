@@ -1,0 +1,141 @@
+{
+  "id": {
+    "sessionId": "01f0e5523fb7fa751a9bd240d3fa9b22",
+    "elementId": "da935574-61ac-46f1-a892-4f6cb27a047d",
+    "element-6066-11e4-a52e-4f735466cecf": "da935574-61ac-46f1-a892-4f6cb27a047d",
+    "selector": "#courses-iframe",
+    "parent": {
+      "sessionId": "01f0e5523fb7fa751a9bd240d3fa9b22",
+      "capabilities": {
+        "acceptInsecureCerts": true,
+        "browserName": "chrome",
+        "browserVersion": "106.0.5249.103",
+        "chrome": {
+          "chromedriverVersion": "105.0.5195.52 (412c95e518836d8a7d97250d62b29c2ae6a26a85-refs/branch-heads/5195@{#853})",
+          "userDataDir": "C:\\Users\\csc\\AppData\\Local\\Temp\\scoped_dir19128_1328111492"
+        },
+        "goog:chromeOptions": {
+          "debuggerAddress": "localhost:60334"
+        },
+        "networkConnectionEnabled": false,
+        "pageLoadStrategy": "normal",
+        "platformName": "windows",
+        "proxy": {},
+        "setWindowRect": true,
+        "strictFileInteractability": false,
+        "timeouts": {
+          "implicit": 0,
+          "pageLoad": 300000,
+          "script": 30000
+        },
+        "unhandledPromptBehavior": "dismiss and notify",
+        "webauthn:extension:credBlob": true,
+        "webauthn:extension:largeBlob": true,
+        "webauthn:virtualAuthenticators": true
+      },
+      "config": {
+        "specs": [
+          "./test/specs/**/*.spec.js"
+        ],
+        "suites": {
+          "loginCheck": [
+            "test/specs/allLoginFieldsCheck.spec.js"
+          ]
+        },
+        "exclude": [
+          "test/specs/login.spec.js"
+        ],
+        "logLevel": "error",
+        "logLevels": {},
+        "excludeDriverLogs": [],
+        "bail": 0,
+        "waitforInterval": 500,
+        "waitforTimeout": 10000,
+        "framework": "mocha",
+        "reporters": [
+          [
+            "allure",
+            {
+              "outputDir": "allure-results",
+              "disableWebdriverScreenshotsReporting": true
+            }
+          ]
+        ],
+        "services": [
+          "chromedriver"
+        ],
+        "maxInstances": 10,
+        "maxInstancesPerCapability": 100,
+        "filesToWatch": [],
+        "connectionRetryTimeout": 120000,
+        "connectionRetryCount": 3,
+        "execArgv": [],
+        "runnerEnv": {},
+        "runner": "local",
+        "specFileRetries": 0,
+        "specFileRetriesDelay": 0,
+        "specFileRetriesDeferred": false,
+        "reporterSyncInterval": 100,
+        "reporterSyncTimeout": 5000,
+        "cucumberFeaturesWithLineNumbers": [],
+        "autoCompileOpts": {
+          "autoCompile": true,
+          "tsNodeOpts": {
+            "transpileOnly": true
+          },
+          "babelOpts": {}
+        },
+        "mochaOpts": {
+          "timeout": 60000,
+          "ui": "bdd",
+          "require": [
+            "@babel/register"
+          ]
+        },
+        "jasmineOpts": {
+          "defaultTimeoutInterval": 10000
+        },
+        "cucumberOpts": {
+          "timeout": 10000
+        },
+        "onPrepare": [],
+        "onWorkerStart": [],
+        "onWorkerEnd": [],
+        "before": [],
+        "beforeSession": [],
+        "beforeSuite": [],
+        "beforeHook": [],
+        "beforeTest": [
+          null
+        ],
+        "beforeCommand": [],
+        "afterCommand": [],
+        "afterTest": [
+          null
+        ],
+        "afterHook": [],
+        "afterSuite": [
+          null
+        ],
+        "afterSession": [],
+        "after": [],
+        "onComplete": [],
+        "onReload": [],
+        "beforeFeature": [],
+        "beforeScenario": [],
+        "beforeStep": [],
+        "afterStep": [],
+        "afterScenario": [],
+        "afterFeature": [],
+        "baseUrl": "https://rahulshettyacademy.com",
+        "_": [
+          "run"
+        ],
+        "$0": "node_modules\\@wdio\\cli\\bin\\wdio.js",
+        "config-path": "wdio.conf.js",
+        "ignoredWorkerServices": []
+      }
+    },
+    "isReactElement": false
+  }
+}

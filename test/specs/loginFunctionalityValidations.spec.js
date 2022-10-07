@@ -10,7 +10,7 @@ const credentials = JSON.parse(
   fs.readFileSync("test/fixtures/payload/loginCreds.json")
 );
 
-describe("All Fields Check", async () => {
+describe("Login Functionality Checks", async () => {
   beforeEach(async () => {
     await browser.url("/loginpagePractise/");
     await browser.maximizeWindow();
@@ -18,33 +18,41 @@ describe("All Fields Check", async () => {
 
   credentials.invalid.forEach(({ username, password }) => {
     it("Check login functionality for invalid creds", async () => {
-      await browser.pause(2000);
-      console.log(await loginpagePractice.getUsernameField);
       await (await loginpagePractice.getUsernameField).waitForEnabled();
       loginpagePractice.setUsername(username);
       loginpagePractice.setPassword(password);
 
+      // Wait till values are entered and then click SignIn
+      await browser.waitUntil(
+        async () =>
+          (await (await loginpagePractice.getUsernameField).getValue()) ===
+          username
+      );
       await (await loginpagePractice.getSignInButton).click();
 
       await (await loginpagePractice.getLoginPageErrorMsg).waitForDisplayed();
-      expect(await listingPage.getProductsList).toHaveText(
-        "Incorrect username/password."
-      );
+      chaiexpect(
+        await (await loginpagePractice.getLoginPageErrorMsg).getText()
+      ).to.equal("Incorrect username/password.");
     });
   });
 
   credentials.valid.forEach(({ username, password }) => {
-    it("Check login functionality for invalid creds", async () => {
-      await browser.pause(2000);
-      console.log(await loginpagePractice.getUsernameField);
+    it("Check login functionality for valid creds", async () => {
       await (await loginpagePractice.getUsernameField).waitForEnabled();
       loginpagePractice.setUsername(username);
       loginpagePractice.setPassword(password);
 
+      // Wait till values are entered and then click SignIn
+      await browser.waitUntil(
+        async () =>
+          (await (await loginpagePractice.getUsernameField).getValue()) ===
+          username
+      );
       await (await loginpagePractice.getSignInButton).click();
 
       expect(await listingPage.getPageTitle).toHaveText("Shop Name");
-      // await (await listingPage.getProductsList[1]).waitForDisplayed();
+      // await (await listingPage.getProductsList.$()).waitForDisplayed();
       await browser.pause(2000);
       expect(await listingPage.getProductsList).toHaveLength(4);
     });

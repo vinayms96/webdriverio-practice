@@ -4,20 +4,24 @@
   "private": true,
   "devDependencies": {
     "@babel/register": "^7.18.9",
-    "@wdio/allure-reporter": "^7.24.0",
+    "@wdio/allure-reporter": "^7.25.1",
     "@wdio/cli": "^7.24.0",
     "@wdio/local-runner": "^7.24.0",
     "@wdio/mocha-framework": "^7.24.0",
     "@wdio/selenium-standalone-service": "^7.25.1",
     "@wdio/spec-reporter": "^7.24.0",
+    "allure-commandline": "^2.18.1",
     "chai": "4.0.1",
     "chai-webdriverio": "^1.0.0",
     "chromedriver": "^105.0.1",
     "wdio-chromedriver-service": "^7.3.2"
   },
   "scripts": {
-    "wdio": "wdio run wdio.conf.js",
+    "wdio": "wdio run wdio.conf.js && npm run generateReport",
+    "cleanWdio": "npm run cleanResults && wdio run wdio.conf.js && npm run generateReport",
     "smoke": "wdio --mochaOpts.grep Smoke",
-    "loginCheck": "wdio --suite loginCheck"
+    "loginCheck": "wdio --suite loginCheck",
+    "cleanResults": "rm -r ./allure-results",
+    "generateReport": "allure generate allure-results --clean && allure open"
   }
 }

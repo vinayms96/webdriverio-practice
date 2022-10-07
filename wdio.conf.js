@@ -24,12 +24,12 @@ exports.config = {
   //   specs: ["./test/specs/loginFunctionalityValidations.spec.js"],
   specs: ["./test/specs/**/*.spec.js"],
   suites: {
-    loginCheck: ['test/specs/allLoginFieldsCheck.spec.js']
+    loginCheck: ["test/specs/allLoginFieldsCheck.spec.js"],
   },
   // Patterns to exclude.
   exclude: [
     // 'path/to/excluded/files'
-    'test/specs/login.spec.js'
+    "test/specs/login.spec.js",
   ],
   //
   // ============
@@ -63,7 +63,7 @@ exports.config = {
       "goog:chromeOptions": {
         // to run chrome headless the following flags are required
         // (see https://developers.google.com/web/updates/2017/04/headless-chrome)
-        args: ["--headless", "--disable-gpu"],
+        // args: ["--headless", "--disable-gpu"],
       },
       acceptInsecureCerts: true,
       // If outputDir is provided WebdriverIO can capture driver session logs
@@ -141,7 +141,10 @@ exports.config = {
   // Test reporter for stdout.
   // The only one supported by default is 'dot'
   // see also: https://webdriver.io/docs/dot-reporter
-  reporters: ["spec", ["allure", { outputDir: "allure-results" }]],
+  reporters: [['allure', {
+    outputDir: 'allure-results',
+    disableWebdriverScreenshotsReporting: true,
+  }]],
 
   //
   // Options to be passed to Mocha.
@@ -266,8 +269,12 @@ exports.config = {
    * Hook that gets executed after the suite has ended
    * @param {Object} suite suite details
    */
-  // afterSuite: function (suite) {
-  // },
+  afterSuite: async function (suite) {
+    if (error) {
+      await browser.takeScreenshot();
+    }
+  
+  },
   /**
    * Runs after a WebdriverIO command gets executed
    * @param {String} commandName hook command name

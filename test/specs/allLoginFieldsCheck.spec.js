@@ -5,7 +5,7 @@ const chaiexpect = require("chai").expect;
 
 const loginpagePractice = require("../pageobjects/loginpagePractice");
 
-describe("All Fields Check", async function () {
+describe("All Login Fields Check", async function () {
   // Retry entire spec file
   this.retries(4);
 
