@@ -1,0 +1,22 @@
+{
+    "invalid": [
+        {
+            "username": "rahulshettyacademy",
+            "password": "learning123"
+        },
+        {
+            "username": "rahulshettyacademy",
+            "password": "learning$%&"
+        },
+        {
+            "username": "rahulshettyacademy",
+            "password": "             "
+        }
+    ],
+    "valid": [
+        {
+            "username": "rahulshettyacademy",
+            "password": "learning"
+        }
+    ]
+}
